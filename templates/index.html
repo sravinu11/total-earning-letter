@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Earning Letter</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #0094D9;
+            --accent-light: #eff6ff;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --border: #e2e8f0;
+            --text-light: #64748b;
+            --radius: 16px;
+            --shadow: 0 4px 24px rgba(0,0,0,.08);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,.14);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e0f2fe 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .header-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, #006fa3 60%, #005f8a 100%);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .header-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .header-content h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header-content p {
+            font-size: 15px;
+            color: rgba(255,255,255,.75);
+            margin: 0;
+        }
+
+        .container-wrapper {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .card {
+            border: none;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-body {
+            padding: 40px 35px;
+            background: white;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .form-control {
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            background: var(--accent-light);
+            color: var(--primary);
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(0, 148, 217, 0.1);
+            outline: none;
+        }
+
+        .form-control::placeholder {
+            color: var(--text-light);
+        }
+
+        .input-group-wrapper {
+            margin-bottom: 28px;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            font-size: 18px;
+        }
+
+        .form-control-with-icon {
+            padding-left: 45px;
+            position: relative;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, var(--accent) 0%, #006fa3 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0, 148, 217, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 148, 217, 0.4);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .btn-submit i {
+            font-size: 16px;
+        }
+
+        .alert {
+            border-radius: 12px;
+            border: none;
+            padding: 14px 16px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert-danger {
+            background: #fee2e2;
+            color: #991b1b;
+            border-left: 4px solid #ef4444;
+        }
+
+        .alert i {
+            font-size: 18px;
+        }
+
+        .info-box {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 24px;
+            font-size: 13px;
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        .info-box i {
+            color: var(--accent);
+            margin-right: 8px;
+            font-weight: 600;
+        }
+
+        .page-credit {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 576px) {
+            .header-banner {
+                margin-bottom: 30px;
+            }
+
+            .header-content h1 {
+                font-size: 24px;
+            }
+
+            .header-icon {
+                font-size: 36px;
+            }
+
+            .card-body {
+                padding: 30px 20px;
+            }
+
+            .container-wrapper {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-wrapper">
+
+        <div class="header-banner">
+            <div class="header-content">
+                <div class="header-icon">💰</div>
+                <h1>Total Earning</h1>
+                <p>Search and retrieve Sec earning details</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+
+                <form method="POST">
+
+                    <div class="input-group-wrapper">
+                        <label class="form-label" for="ho_id">
+                            <i class="fas fa-id-card" style="margin-right: 8px; color: var(--accent);"></i>
+                            Enter HO ID
+                        </label>
+
+                        <div style="position: relative;">
+                            <span class="input-icon"><i class="fas fa-user"></i></span>
+                            <input
+                                type="text"
+                                id="ho_id"
+                                name="ho_id"
+                                class="form-control form-control-with-icon"
+                                placeholder="e.g., EAST1799"
+                                required
+                                autocomplete="off">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-search"></i>
+                        Search
+                    </button>
+
+                </form>
+
+                {% if error %}
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>{{ error }}</span>
+                </div>
+                {% endif %}
+
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i>
+                    Enter your HO ID to retrieve Sec total earning letter. Please ensure the ID is correct.
+                </div>
+
+            </div>
+        </div>
+
+        <p class="page-credit">This Page is Design and created by Ravi Sharma</p>
+
+    </div>
+
+</body>
+</html>
