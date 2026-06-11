@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, Response, session, redirect, url_for
-import psycopg2
+import psycopg
 import paramiko
 import os
 
@@ -22,7 +22,7 @@ LOGIN_PASSWORD = "QueSScorptoTaleArning@"
 
 
 def get_connection():
-    return psycopg2.connect(DATABASE_URL)
+    return psycopg.connect(DATABASE_URL)
 
 
 @app.route("/", methods=["GET", "POST"])
